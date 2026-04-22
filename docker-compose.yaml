@@ -1,0 +1,24 @@
+version: "3.8"
+
+services:
+  aptos-fullnode:
+    image: aptoslab/validator:${IMAGE_TAG:-devnet}
+    container_name: aptos-fullnode
+    restart: unless-stopped
+    ports:
+      - "6180:6180"
+      - "8080:8080"
+    volumes:
+      - ./devnet/data:/opt/aptos/data
+      - ./devnet/genesis.blob:/opt/aptos/genesis.blob:ro
+      - ./devnet/waypoint.txt:/opt/aptos/waypoint.txt:ro
+      - ./devnet/full_node.yaml:/opt/aptos/etc/full_node.yaml:ro
+    command: ["-f", "/opt/aptos/etc/full_node.yaml"]
+    environment:
+      - RUST_LOG=info
+    networks:
+      - aptos-net
+
+networks:
+  aptos-net:
+    driver: bridge

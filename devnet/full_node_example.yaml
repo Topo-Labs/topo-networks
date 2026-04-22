@@ -1,0 +1,23 @@
+base:
+  data_dir: "/Volumes/Data_dev/Documents/Codes/Rust/topo-networks/data"
+  role: "full_node"
+  waypoint:
+    from_file: "/Volumes/Data_dev/Documents/Codes/Rust/topo-networks/devnet/waypoint.txt"
+
+execution:
+  genesis_file_location: "/Volumes/Data_dev/Documents/Codes/Rust/topo-networks/devnet/genesis.blob"
+
+full_node_networks:
+  - network_id:
+      private: vfn
+    discovery_method: "none"
+    listen_address: "/ip4/0.0.0.0/tcp/6180"
+    seeds:
+      7bd27ff9e4b811c4158009ff0a3078e0f9b13e8a30f5cf423da1d0fa4d9f45ea:
+        addresses:
+          - "/ip4/0.0.0.0/tcp/37483/noise-ik/0x9e64049a93a796b8ad3f6465a201815b5f5aa30094252b057740bd156b358f09/handshake/0"
+        role: "Validator"
+
+api:
+  enabled: true
+  address: "0.0.0.0:8080"
