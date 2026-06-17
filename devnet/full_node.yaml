@@ -1,12 +1,11 @@
-# Replace /path/to/topo-networks with your local workspace path.
 base:
-  data_dir: "/path/to/topo-networks/data"
+  data_dir: "/opt/aptos/data"
   role: "full_node"
   waypoint:
-    from_file: "/path/to/topo-networks/devnet/waypoint.txt"
+    from_file: "/opt/aptos/waypoint.txt"
 
 execution:
-  genesis_file_location: "/path/to/topo-networks/devnet/genesis.blob"
+  genesis_file_location: "/opt/aptos/genesis.blob"
 
 full_node_networks:
   - network_id: "public"

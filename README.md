@@ -11,3 +11,9 @@
 ```bash
 ./bin/aptos-node -f ./devnet/full_node.yaml
 ```
+
+- `devnet/full_node.yaml` and `devnet/full_node_example.yaml` are `public` fullnode configurations and do not depend on a private `vfn` network.
+- `devnet/full_node_example.yaml` includes a local-path example, `indexer_table_info`, and `indexer_grpc` configuration.
+- Docker Compose exposes:
+  - Aptos API at `127.0.0.1:8080`
+  - Indexer gRPC at `127.0.0.1:30041`

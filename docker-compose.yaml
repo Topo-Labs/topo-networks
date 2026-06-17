@@ -1,24 +1,25 @@
 version: "3.8"
 
 services:
-  aptos-fullnode:
+  topo-fullnode:
     image: aptoslab/validator:${IMAGE_TAG:-devnet}
-    container_name: aptos-fullnode
+    container_name: topo-fullnode
     restart: unless-stopped
     ports:
       - "6180:6180"
       - "8080:8080"
+      - "30041:30041"
     volumes:
-      - ./devnet/data:/opt/aptos/data
-      - ./devnet/genesis.blob:/opt/aptos/genesis.blob:ro
-      - ./devnet/waypoint.txt:/opt/aptos/waypoint.txt:ro
-      - ./devnet/full_node.yaml:/opt/aptos/etc/full_node.yaml:ro
-    command: ["-f", "/opt/aptos/etc/full_node.yaml"]
+      - ./devnet/data:/opt/topo/data
+      - ./devnet/genesis.blob:/opt/topo/genesis.blob:ro
+      - ./devnet/waypoint.txt:/opt/topo/waypoint.txt:ro
+      - ./devnet/full_node.yaml:/opt/topo/etc/full_node.yaml:ro
+    command: ["-f", "/opt/topo/etc/full_node.yaml"]
     environment:
       - RUST_LOG=info
     networks:
-      - aptos-net
+      - topo-net
 
 networks:
-  aptos-net:
+  topo-net:
     driver: bridge
